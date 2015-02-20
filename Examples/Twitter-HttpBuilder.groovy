@@ -2,10 +2,6 @@
 @Grab(group='oauth.signpost', module='signpost-core', version='1.2.1.2')
 @Grab(group='oauth.signpost', module='signpost-commonshttp4', version='1.2.1.2')
 
-/*
-API Key : bCLQiug4hXKNkmgmsGzHuQ
-API Secret : DWLBdpiqmO9GR60LjPKQ3A0vs2KpiNFXk8JJsjVXoIQ
-*/
 import groovyx.net.http.RESTClient
 import static groovyx.net.http.ContentType.*
 
