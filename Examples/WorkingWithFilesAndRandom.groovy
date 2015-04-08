@@ -1,7 +1,7 @@
 def results = [];
 
 
-File[] files = new File("/media/ADATA HD710/IEEE").listFiles();
+File[] files = new File("/media/ADATA HD710/IEEE/Candidatos").listFiles();
 
 for (File file : files) {
     if (file.isFile()) {
