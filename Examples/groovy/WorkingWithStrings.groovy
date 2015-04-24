@@ -20,3 +20,11 @@ def nombre = "Pepo"
 def otraCadena = "Mi nombre es ${nombre}"
 println otraCadena.class.name
 println otraCadena
+
+/*Belleza de Groovy, metaClass*/
+String.metaClass.esPalindromo = {
+	delegate == delegate.reverse()
+}
+
+def otraPalabra = "oso"
+println "oso".esPalindromo()
