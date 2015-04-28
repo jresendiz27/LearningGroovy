@@ -1,6 +1,11 @@
 @GrabConfig(systemClassLoader=true)
+
+@Grab(group='commons-logging', module='commons-logging', version='1.1.1')
+@Grab(group='commons-beanutils', module='commons-beanutils', version='1.8.0')
+@Grab(group='commons-lang', module='commons-lang', version='2.4')
 @Grab(group='org.codehaus.gpars', module='gpars', version='1.2.1')
 @Grab(group='mysql', module='mysql-connector-java', version='5.1.35')
+@Grab(group='org.codehaus.groovy.modules.http-builder', module='http-builder', version='0.7')
 
 import groovy.sql.Sql
 import groovyx.gpars.*;

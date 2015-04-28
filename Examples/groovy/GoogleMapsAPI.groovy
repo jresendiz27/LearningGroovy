@@ -8,10 +8,10 @@ import groovyx.net.http.HTTPBuilder
  
 // https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=AIzaSyCo72iVxPewCLtXKmoeiWSyNAAVTqIiVvs
 // "215251","1021746"
-def http = new HTTPBuilder( 'http://mapserver.inegi.org.mx/traninv/' )
+def http = new HTTPBuilder( 'https://maps.googleapis.com/maps/api/geocode/' )
  
-http.get( path: 'transcoord.do', query: [datos: """{"degX":-102.2961111111111,"degY":21.880833333333335,"utmX":"","utmY":"","utmZona":"11","cclX":"","cclY":"","datum":"itrf92","proy":"dms"}"""] ) { resp, json ->
+http.get( path: 'json', query: [latlng: '21.5251,-102.1746', key:'AIzaSyCo72iVxPewCLtXKmoeiWSyNAAVTqIiVvs'] ) { resp, json ->
     println resp.status
     println "results: "
-    println json
+    println json.results[-2].formatted_address
 }

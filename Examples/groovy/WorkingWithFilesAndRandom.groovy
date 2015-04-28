@@ -1,6 +1,20 @@
-def results = [];
+def results = [
+'html',
+'java',
+'calculo',
+'historia',
+'fisica',
+'quimica',
+'moviles',
+'aplicaciones web',
+'lineal',
+'diferenciales',
+'Reporte de la FLISOL',
+'Sistemas distribuidos'
+]; //LISTA
 
 
+/*
 File[] files = new File("/media/ADATA HD710/IEEE/Candidatos").listFiles();
 
 for (File file : files) {
@@ -10,6 +24,7 @@ for (File file : files) {
         }
     }
 }
+*/
 def gama = []
 def pepo = [] 
 def alex = []
