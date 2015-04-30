@@ -51,7 +51,6 @@ def resolveLatLon = { rows ->
             path: 'transcoord.do', 
             query: [datos: """{"degX":$longitud,"degY":$latitud,"utmX":"","utmY":"","utmZona":"11","cclX":"","cclY":"","datum":"itrf92","proy":"dms"}"""] 
             ) { resp, json ->
-                println row
                 def query = """insert into places(
                                 hex_lat,
                                 hex_lon,
@@ -67,19 +66,20 @@ def resolveLatLon = { rows ->
                             ) 
                         values 
                             (
-                                '$row.latitud', 
-                                '$row.longitud', 
-                                '$json.degX_ITRF',
-                                '$json.degY_ITRF',
-                                '$json.degX_NAD',
-                                '$json.degY_NAD',
-                                '$row.altitud',
-                                '$row.localidad',
-                                '$row.estado',
-                                '$row.municipio',
-                                '$row.clave_estado'
+                                ${"'" + row.latitud + "'"}, 
+                                ${"'" + row.longitud + "'"}, 
+                                ${"'" + json.degX_ITRF + "'"},
+                                ${"'" + json.degY_ITRF + "'"},
+                                ${"'" + json.degX_NAD + "'"},
+                                ${"'" + json.degY_NAD + "'"},
+                                ${"'" + row.altitud + "'"},
+                                ${"'" + row.localidad + "'"},
+                                ${"'" + row.estado + "'"},
+                                ${"'" + row.municipio + "'"},
+                                ${"'" + row.clave_estado + "'"}
                             )"""
-                localSQLInstance.execute(query)   
+                localSQLInstance.execute(query)
+                localSQLInstance.close()
             }
     }
 }
@@ -89,5 +89,6 @@ GParsPool.withPool{
         resolveLatLon(it)
     }
 }
+sqlInstance.close()
 def fin = System.currentTimeMillis()
 println ("[INEGI Solver] Tiempo de ejecución: ${fin-inicio} ms")
