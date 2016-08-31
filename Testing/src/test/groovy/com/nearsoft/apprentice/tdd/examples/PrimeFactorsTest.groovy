@@ -1,6 +1,9 @@
 package com.nearsoft.apprentice.tdd.examples
 
+import org.junit.Before
 import org.junit.Test
+import org.spockframework.compiler.model.SetupBlock
+
 import static org.junit.Assert.assertThat
 import static org.hamcrest.CoreMatchers.*
 import java.lang.Void as should
@@ -11,6 +14,11 @@ import java.lang.Void as should
  Write a program that takes an integer argument and returns a List<Integer>.
  That list contains the prime factors in numerical sequence.
 
+ Recuerda ... Si un número entero mayor que 1 no tiene divisores primos menores
+ o iguales que su raíz, entonces es primo.
+
+ 26 ~= 5.1, 2,3,5
+
  e.g:
 
  2 -> [2]
@@ -20,23 +28,45 @@ import java.lang.Void as should
  330 -> [2, 3, 5, 11]
  */
 class PrimeFactorsTest extends GroovyTestCase {
-    def generatePrimesUpTo(int upperLimit) {
-        def primes = []
-        def numbers = 2..upperLimit
-        /* Quadratic complexity?? Seems to be higher ...  */
-        for(number in numbers) {
-            boolean isComposite = false
-            for(prime in primes) {
-                if(number % prime == 0) {
-                    isComposite = true
-                    break;
-                }
-            }
-            if(!isComposite) {
-                primes.add(number)
-                continue;
-            }
-        }
-        return primes
+    PrimeFactors primeFactors;
+
+    @Test
+    void testPrimeFactorsOfNumberTwo() {
+        primeFactors = new PrimeFactors();
+        assert primeFactors.getPrimeFactors(2) == [2]
+    }
+
+    @Test
+    void testPrimeFactorsOfNumberEight() { // OK
+        // 8 -> [2, 2, 2]
+        primeFactors = new PrimeFactors();
+        assert primeFactors.getPrimeFactors(8) == [2,2,2]
+    }
+
+    @Test
+    void testPrimeFactorsOfTen() {
+        // 10 -> [2, 5]
+        primeFactors = new PrimeFactors();
+        assert primeFactors.getPrimeFactors(10) == [2,5]
+    }
+    @Test
+    void testPrimeFactorsOfTwenty() {
+        // 20 -> [2, 2, 5]
+        primeFactors = new PrimeFactors();
+        assert primeFactors.getPrimeFactors(20) == [2,2,5]
+    }
+
+    @Test
+    void testOtherNumber () {
+        // 330 -> [2, 3, 5, 11]
+        primeFactors = new PrimeFactors();
+        assert primeFactors.getPrimeFactors(330) == [2,3,5,11]
+    }
+
+    @Test
+    void testAPrime () {
+        // 330 -> [2, 3, 5, 11]
+        primeFactors = new PrimeFactors();
+        assert primeFactors.getPrimeFactors(17) == [17]
     }
 }
