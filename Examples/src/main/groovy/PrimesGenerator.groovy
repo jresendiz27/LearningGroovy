@@ -1,16 +1,15 @@
 def generatePrimesUpTo(int upperLimit) {
     def primes = []
     def numbers = 2..upperLimit
-    for(number in numbers) {
+    for (number in numbers) {
         boolean isComposite = false
-        boolean isEven = false
-        for(prime in primes) {
-            if(number % prime == 0) {
+        for (prime in primes) {
+            if (number % prime == 0) {
                 isComposite = true
                 break;
             }
         }
-        if(!isComposite) {
+        if (!isComposite) {
             primes.add(number)
             continue;
         }

@@ -1,18 +1,17 @@
 def results = [
-'html',
-'java',
-'calculo',
-'historia',
-'fisica',
-'quimica',
-'moviles',
-'aplicaciones web',
-'lineal',
-'diferenciales',
-'Reporte de la FLISOL',
-'Sistemas distribuidos'
+        'html',
+        'java',
+        'calculo',
+        'historia',
+        'fisica',
+        'quimica',
+        'moviles',
+        'aplicaciones web',
+        'lineal',
+        'diferenciales',
+        'Reporte de la FLISOL',
+        'Sistemas distribuidos'
 ]; //LISTA
-
 
 /*
 File[] files = new File("/media/ADATA HD710/IEEE/Candidatos").listFiles();
@@ -26,24 +25,24 @@ for (File file : files) {
 }
 */
 def gama = []
-def pepo = [] 
+def pepo = []
 def alex = []
-for(file in results){
-    def who = (int)Math.random()*17;
-    if(who%3 == 0){
-       gama.add(file)
+for (file in results) {
+    def who = (int) Math.random() * 17;
+    if (who % 3 == 0) {
+        gama.add(file)
     }
-    if(who%3 == 1){
+    if (who % 3 == 1) {
         pepo.add(file)
     }
-    if(who%3 == 2){
+    if (who % 3 == 2) {
         alex.add(file)
     }
 }
 println "-----------------------------------------------------------"
 println "Gama [${gama.size()}]: " + gama
 println "-----------------------------------------------------------"
-println "Pepo [${pepo.size()}]: " + pepo 
+println "Pepo [${pepo.size()}]: " + pepo
 println "-----------------------------------------------------------"
 println "Alex [${alex.size()}]: " + alex
 println "-----------------------------------------------------------"

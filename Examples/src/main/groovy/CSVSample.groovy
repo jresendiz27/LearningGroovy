@@ -1,4 +1,4 @@
-@Grab(group='com.xlson.groovycsv', module='groovycsv', version='1.0')
+@Grab(group = 'com.xlson.groovycsv', module = 'groovycsv', version = '1.0')
 import static com.xlson.groovycsv.CsvParser.parseCsv
 
 /*
@@ -11,12 +11,12 @@ import static com.xlson.groovycsv.CsvParser.parseCsv
 def csv = new File("/home/alberto/Documents/Github/Ambienta2MX/FastEagle/src/main/resources/AHL01Maestro.csv").text
 def data = parseCsv(csv)
 def counter = 0
-for(line in data) {
+for (line in data) {
     println "${line.CLAVE} \t ${line.LATITUD.class.getSimpleName()} \t ${line.LONGITUD} \t ${line.ALTITUD}"
-    if(counter == 20){
+    if (counter == 20) {
         break
     }
-    counter ++
+    counter++
 }
 /*
 // Most left point, near Tijuana

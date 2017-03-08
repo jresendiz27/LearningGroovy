@@ -2,7 +2,7 @@
 @author: Juan Alberto Reséndiz Arteaga
 Simple example of string management with Groovy!
 */
-def cadena="Una cadena de caracteres"
+def cadena = "Una cadena de caracteres"
 // Inferencia automática del tipo de variable!!!
 println cadena.class.name
 
@@ -23,7 +23,7 @@ println otraCadena
 
 /*Belleza de Groovy, metaClass*/
 String.metaClass.esPalindromo = {
-	delegate == delegate.reverse()
+    delegate == delegate.reverse()
 }
 
 def otraPalabra = "oso"

@@ -5,8 +5,8 @@ def JsonContent = new File("/home/alberto/Documents/Github/Ambienta2MX/Ambienta2
 def object = new JsonSlurper().parseText(JsonContent)
 
 def iterator = 0
-def mexico = object['conds'].findAll{
-    if(!(it.value.country in ["GUATEMALA","US","Honduras","HONDURAS","BELIZE"])){
+def mexico = object['conds'].findAll {
+    if (!(it.value.country in ["GUATEMALA", "US", "Honduras", "HONDURAS", "BELIZE"])) {
         return true
     }
 }
